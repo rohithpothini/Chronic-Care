@@ -1,0 +1,273 @@
+/*body {
+  font-family: Arial, sans-serif;
+  background: #f4f7fb;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+input {
+  width: 100%;
+  margin: 5px 0;
+  padding: 8px;
+}
+
+button {
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.result-card {
+  background: #e9f5ff;
+}
+
+.chart-container {
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  height: 400px;
+}
+
+canvas {
+  max-width: 100%;
+}*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+h1 {
+  color: white;
+  font-size: 2.5em;
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  animation: fadeInDown 0.8s ease-out;
+}
+
+h2 {
+  color: #333;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  width: 380px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.1);
+  animation: slideUp 0.6s ease-out;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.card h2 {
+  color: #667eea;
+  margin-bottom: 25px;
+  font-size: 1.3em;
+}
+
+input {
+  width: 100%;
+  margin: 12px 0;
+  padding: 14px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1em;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 10px rgba(102, 126, 234, 0.2);
+  background: #f8f9ff;
+}
+
+input::placeholder {
+  color: #999;
+}
+
+button {
+  padding: 14px 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1.1em;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-top: 15px;
+}
+
+button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+.result-card {
+  background: linear-gradient(135deg, #e9f5ff 0%, #f0e6ff 100%);
+  border: 2px solid #667eea;
+}
+
+.result-card h3 {
+  color: #667eea;
+  font-size: 1.4em;
+  margin: 15px 0;
+}
+
+.result-card p {
+  color: #333;
+  font-size: 1.1em;
+  margin: 12px 0;
+  line-height: 1.6;
+}
+
+#riskScore {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #667eea;
+}
+
+#alertMessage {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+#highRiskAlert {
+  font-size: 1.1em;
+  font-weight: bold;
+  padding: 15px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.5);
+  margin: 10px 0;
+}
+
+#diseasePrediction, #medicationDisplay {
+  font-size: 1.05em;
+  color: #555;
+  background: rgba(255,255,255,0.8);
+  padding: 12px;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+.chart-container {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  height: 420px;
+  animation: slideUp 0.7s ease-out;
+}
+
+.chart-container h2 {
+  text-align: left;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+canvas {
+  max-width: 100%;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chart-container {
+    width: 95%;
+    padding: 20px;
+  }
+}

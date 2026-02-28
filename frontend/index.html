@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chronic Care Intelligence Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<h1>🏥 Integrated Chronic Care Intelligence Platform</h1>
+
+<div class="container"> 
+
+  <div class="card">
+    <h2>👤 Patient Information</h2>
+    <input type="text" id="name" placeholder="Enter patient name">
+    <input type="number" id="age" placeholder="Enter age">
+    <input type="number" id="weight" placeholder="Enter weight in kg">
+  </div>
+
+  <div class="card">
+    <h2>🩺 Health Parameters</h2>
+    <input type="number" id="glucose" placeholder="Glucose">
+    <input type="number" id="bp_systolic" placeholder="Systolic BP">
+    <input type="number" id="bp_diastolic" placeholder="Diastolic BP">
+    <input type="number" id="heart_rate" placeholder="Heart Rate">
+    <input type="number" id="cholesterol" placeholder="Cholesterol">
+    <button onclick="predictRisk()">Analyze Risk</button>
+  </div>
+
+  <div class="card result-card">
+    <h2>📊 Risk Analysis</h2>
+    <h3 id="riskScore">Risk Score: --</h3>
+    <p id="alertMessage"></p>
+    <p id="highRiskAlert" style="color: red; font-weight: bold;"></p>
+    <p id="diseasePrediction"></p>
+    <p id="medicationDisplay"></p>
+  </div>
+
+</div>
+
+<h2>📈 Health Metrics Status</h2>
+<div class="chart-container">
+  <canvas id="metricsChart"></canvas>
+</div>
+
+<h2>📊 Health Trend</h2>
+<div class="chart-container">
+  <canvas id="healthChart"></canvas>
+</div>
+
+<h2>🧬 Health Predictions</h2>
+<div class="chart-container">
+  <canvas id="diseaseChart"></canvas>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
